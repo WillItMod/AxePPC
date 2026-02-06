@@ -203,7 +203,7 @@ services:
     restart: unless-stopped
 
   pool:
-    image: ghcr.io/willitmod/axeppc-pool:0.2.1
+    image: ghcr.io/willitmod/axeppc-pool:0.2.6
     user: "1000:1000"
     restart: unless-stopped
     depends_on:
@@ -222,7 +222,7 @@ services:
       - ${APP_DATA_DIR}/data/pool/cps/coins/peercoin.json:/app/coins/peercoin.json:ro
 
   app:
-    image: ghcr.io/willitmod/axeppc-app-umbrel-dev:latest
+    image: ghcr.io/willitmod/axeppc-app-umbrel-dev:0.2.6
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 30s
@@ -248,7 +248,7 @@ services:
       PPC_RPC_USER: "ppc"
       PPC_RPC_PASS: "${APP_PASSWORD}"
       POOL_BACKEND: "cps"
-      POOL_IMAGE: "ghcr.io/willitmod/axeppc-pool:0.2.1"
+      POOL_IMAGE: "ghcr.io/willitmod/axeppc-pool:0.2.6"
       POOL_STATS_URL: "http://pool:8080/api/stats"
       POOL_STRATUM_HOST: "pool"
       POOL_STRATUM_PORT: "3333"
